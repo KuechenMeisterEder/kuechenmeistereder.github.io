@@ -2,346 +2,406 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Küchen Meister Eder &mdash; handgerollte Maultaschen</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Küchen Meister Eder – Maultaschen und Catering aus Althütte</title>
+<meta name="description" content="Küchen Meister Eder: handgerollte Maultaschen und Catering zur Abholung aus Althütte. Bestellung per WhatsApp.">
+<link rel="icon" type="image/png" href="logo-menu.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;700&display=swap">
 <style>
-  :root {
-    --cream: #EDEDEA;
-    --dough: #FFFFFF;
-    --crust: #171717;
-    --herb: #6FB92C;
-    --herb-dark: #56901F;
-    --broth: #171717;
-    --line: rgba(23, 23, 23, 0.12);
-  }
+/* Layout: das Etikett als Seite. Dunkle Flächen tragen Logo und Aussage, grüne Bänder tragen Produktdaten und Bestellung. Drei Ansichten (Start, Maultaschen, Catering) über ein gemeinsames Menü. */
+:root {
+  --ink: #282525;
+  --green: #1bf827;
+  --logo-green: #2cd404;
+  --white: #ffffff;
+  --black: #000000;
+  --font: "Barlow Semi Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background-color: var(--ink);
+  background-image: linear-gradient(180deg, var(--black) 0, var(--ink) 18rem);
+  background-repeat: no-repeat;
+  background-size: 100% 18rem;
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding-block: 3.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.band-ink { background: var(--ink); color: var(--white); }
+.band-green { background: var(--green); color: var(--black); }
+main > section:first-child { background: transparent; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.label { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.9rem; }
+.num { font-weight: 700; letter-spacing: 0.05em; font-variant-numeric: tabular-nums; }
 
-  * { box-sizing: border-box; }
+/* Kopf und Menü */
+.top { background: transparent; }
+.top .wrap { padding-block: 0.8rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 2rem; }
+.top .brand { display: flex; align-items: center; gap: 0.8rem; color: var(--white); text-decoration: none; }
+.top .brand img { width: 3.2rem; height: 3.2rem; display: block; }
+.top .brand span { font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 1rem; }
+.nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; margin-left: auto; }
+.nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 3px solid transparent;
+}
+.nav a:hover { border-bottom-color: var(--logo-green); }
+.nav a[aria-current="page"] { border-bottom-color: var(--green); color: var(--green); }
+a:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
 
-  html { scroll-behavior: smooth; }
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center; }
+.hero > * { min-width: 0; }
+.hero h1 { font-size: clamp(3rem, 9vw, 5.5rem); font-weight: 700; letter-spacing: 0.1em; line-height: 1; }
+.hero .claim { margin: 1.1rem 0 0; font-size: clamp(1.15rem, 3vw, 1.6rem); font-weight: 300; letter-spacing: 0.14em; }
+.hero .logo { display: block; width: min(100%, 22rem); height: auto; justify-self: center; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 2rem; align-items: center; }
+.btn { display: inline-block; padding: 0.85rem 1.6rem; border-radius: 999px; background: var(--green); color: var(--black); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.04em; text-decoration: none; }
+.btn:hover { background: var(--white); }
+.btn:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
+.btn.dark { background: var(--ink); color: var(--green); }
+.btn.dark:hover { background: var(--black); }
+.btn.dark:focus-visible { outline-color: var(--black); }
+.textlink { color: var(--white); letter-spacing: 0.04em; }
 
-  body {
-    margin: 0;
-    background: var(--dough);
-    color: var(--crust);
-    font-family: 'IBM Plex Sans', sans-serif;
-    line-height: 1.6;
-  }
+/* Vorstellung */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.about > * { min-width: 0; }
+.about h2 { color: var(--logo-green); margin-bottom: 1rem; }
+.about p { margin: 0 0 1rem; max-width: 36rem; }
+.about p:last-child { margin-bottom: 0; }
+.facts-ink { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; }
+.facts-ink li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--logo-green); padding-bottom: 0.6rem; }
+.facts-ink b { font-weight: 700; }
 
-  h1, h2, h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    margin: 0 0 0.5em;
-    line-height: 1.15;
-  }
+/* Kacheln zu den Unterseiten */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.tile { display: block; text-decoration: none; padding: 3rem max(16px, 2rem) 3rem; min-width: 0; }
+.tile h2 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 0.08em; margin-bottom: 0.6rem; }
+.tile p { margin: 0 0 1.4rem; max-width: 26rem; }
+.tile .go { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 3px solid currentColor; padding-bottom: 0.1rem; }
+.tile.green { background: var(--green); color: var(--black); }
+.tile.green:hover { background: var(--white); }
+.tile.line { background: var(--ink); color: var(--white); outline: 2px solid var(--logo-green); outline-offset: -2px; }
+.tile.line:hover { background: var(--black); }
+.tile.line .go { color: var(--green); }
 
-  a { color: inherit; }
+/* Produkt */
+.product { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; }
+.product > * { min-width: 0; }
+.product h2 { margin-bottom: 1rem; }
+.product p { margin: 0 0 2rem; text-align: justify; hyphens: auto; }
+.facts { display: grid; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
+.facts li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-bottom: 2px solid var(--black); padding-bottom: 0.6rem; }
+.facts b { font-weight: 700; text-align: right; }
+.price { font-variant-numeric: tabular-nums; }
+.pagehead h1 { font-size: clamp(2.6rem, 8vw, 4.5rem); font-weight: 700; letter-spacing: 0.1em; line-height: 1; }
+.pagehead .claim { margin: 1rem 0 0; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 300; letter-spacing: 0.14em; }
+.pagehead .pagehead-note { margin: 1.2rem 0 0; max-width: 40rem; }
 
-  img { max-width: 100%; display: block; }
+/* Catering */
+.cat { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.cat > * { min-width: 0; }
+.cat h2 { color: var(--logo-green); margin-bottom: 1rem; }
+.cat p { margin: 0 0 1rem; max-width: 36rem; }
+.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.1rem; }
+.steps li { display: grid; grid-template-columns: 2.4rem 1fr; gap: 0.8rem; }
+.steps .n { font-weight: 700; font-size: 1.6rem; color: var(--green); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.steps strong { display: block; letter-spacing: 0.04em; }
 
-  .wrap {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+/* Bestellen */
+.order h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); letter-spacing: 0.06em; }
+.order p { max-width: 38rem; margin: 1rem 0 1.8rem; }
 
-  /* Header */
-  header {
-    position: sticky;
-    top: 0;
-    background: var(--dough);
-    border-bottom: 1px solid var(--line);
-    z-index: 10;
-  }
+/* Fuß */
+footer .wrap { padding-block: 2.2rem; display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; justify-content: space-between; font-size: 1rem; }
+footer address { font-style: normal; }
+footer .logo-s { width: 4.5rem; height: 4.5rem; flex: none; align-self: center; object-fit: contain; display: block; }
 
-  .header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 0;
-  }
+@media (max-width: 760px) {
+  .hero, .product, .about, .cat, .tiles { grid-template-columns: 1fr; gap: 2rem; }
+  .tiles { gap: 0; }
+  .hero .logo { order: -1; width: min(70%, 16rem); justify-self: start; }
+  .wrap { padding-block: 2.5rem; }
+  .nav { margin-left: 0; width: 100%; }
+  .tile { padding: 2.2rem 16px; }
+}
 
-  .brand {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 22px;
-    letter-spacing: -0.01em;
-  }
-
-  .btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--herb);
-    color: var(--dough);
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background 0.15s ease;
-  }
-
-  .btn-whatsapp:hover { background: var(--herb-dark); }
-
-  /* Hero */
-  .hero {
-    padding: 96px 0 80px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .hero h1 {
-    font-size: clamp(36px, 6vw, 58px);
-    max-width: 14ch;
-  }
-
-  .hero p {
-    max-width: 46ch;
-    font-size: 18px;
-    color: rgba(23, 23, 23, 0.75);
-    margin: 0 0 32px;
-  }
-
-  /* Section headings */
-  .section {
-    padding: 72px 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .section-label {
-    font-size: 14px;
-    color: var(--herb);
-    margin: 0 0 8px;
-  }
-
-  .section h2 {
-    font-size: 32px;
-    margin-bottom: 28px;
-  }
-
-  /* Über mich */
-  .about {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 36px;
-    align-items: start;
-  }
-
-  .photo-placeholder {
-    aspect-ratio: 1;
-    background: var(--cream);
-    border: 1px dashed rgba(23, 23, 23, 0.35);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(23, 23, 23, 0.5);
-    font-size: 13px;
-    text-align: center;
-    padding: 12px;
-  }
-
-  /* Produktportfolio */
-  .products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-
-  .product-card {
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    overflow: hidden;
-    background: var(--dough);
-  }
-
-  .product-photo {
-    aspect-ratio: 4 / 3;
-    background: var(--cream);
-    border-bottom: 1px dashed rgba(23, 23, 23, 0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(23, 23, 23, 0.5);
-    font-size: 13px;
-  }
-
-  .product-body { padding: 18px 20px 22px; }
-
-  .product-body h3 {
-    font-size: 19px;
-    margin-bottom: 6px;
-  }
-
-  .product-body p {
-    font-size: 14.5px;
-    color: rgba(23, 23, 23, 0.75);
-    margin: 0;
-  }
-
-  /* Bestellen */
-  .order {
-    background: var(--herb);
-    color: var(--dough);
-    border-bottom: none;
-  }
-
-  .order .section-label { color: rgba(255, 255, 255, 0.7); }
-
-  .order-steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin: 32px 0 40px;
-  }
-
-  .order-steps div {
-    font-size: 14.5px;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .order-steps strong {
-    display: block;
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 17px;
-    color: var(--dough);
-    margin-bottom: 4px;
-  }
-
-  .btn-whatsapp-large {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--dough);
-    color: var(--herb-dark);
-    text-decoration: none;
-    padding: 16px 28px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  .btn-whatsapp-large:hover { background: var(--cream); }
-
-  /* Footer */
-  footer {
-    padding: 40px 0;
-    font-size: 13px;
-    color: rgba(23, 23, 23, 0.6);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  footer a { text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  @media (max-width: 640px) {
-    .about { grid-template-columns: 1fr; }
-    .photo-placeholder { max-width: 160px; }
-    .products { grid-template-columns: 1fr; }
-    .order-steps { grid-template-columns: 1fr; }
-  }
+/* Rechtstexte (Impressum, Datenschutz) */
+[hidden] { display: none !important; }
+.legal h2 { font-size: 1.15rem; color: var(--logo-green); margin: 2rem 0 0.6rem; }
+.legal h2:first-child { margin-top: 0; }
+.legal p { margin: 0 0 1rem; max-width: 44rem; }
+.legal a { color: var(--green); }
+.legal-links a { color: var(--white); letter-spacing: 0.04em; }
+.todo { background: var(--green); color: var(--black); padding: 0 0.35rem; font-weight: 700; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap header-row">
-    <div class="brand">Küchen Meister Eder</div>
-    <a class="btn-whatsapp" href="https://wa.me/4915259606985?text=Hallo%2C%20ich%20m%C3%B6chte%20Maultaschen%20bestellen" target="_blank" rel="noopener">
-      Bestellen per WhatsApp
-    </a>
-  </div>
-</header>
-
-<section class="hero">
+<div class="top">
   <div class="wrap">
-    <h1>Handgerollte Maultaschen aus der Meister-Eder-Werkstatt.</h1>
-    <p>Ohne Geschmacksverstärker, ohne Konservierungsstoffe. Frisch zubereitet und ganz unkompliziert per WhatsApp bestellt.</p>
-    <a class="btn-whatsapp" href="https://wa.me/4915259606985?text=Hallo%2C%20ich%20m%C3%B6chte%20Maultaschen%20bestellen" target="_blank" rel="noopener">
-      Jetzt bestellen
-    </a>
+    <a class="brand" href="#start"><img src="logo-menu.png" alt="" width="52" height="52"><span>Küchen Meister Eder</span></a>
+    <nav class="nav" aria-label="Hauptmenü">
+      <a href="#start" data-nav="start">Start</a>
+      <a href="#maultaschen" data-nav="maultaschen">Maultaschen</a>
+      <a href="#catering" data-nav="catering">Catering</a>
+    </nav>
   </div>
-</section>
+</div>
 
-<section class="section" id="ueber-mich">
-  <div class="wrap">
-    <p class="section-label">Über mich</p>
-    <div class="about">
-      <div class="photo-placeholder">Foto von dir hier einfügen</div>
+<!-- STARTSEITE -->
+<main id="view-start" data-view="start">
+  <section class="band-ink">
+    <div class="wrap hero">
       <div>
-        <h2>Handarbeit statt Fabrik</h2>
-        <p>Bei Küchen Meister Eder wird jede Maultasche von Hand gerollt &mdash; ohne Geschmacksverstärker und ohne Konservierungsstoffe. Hier kannst du kurz erzählen, seit wann du das machst und was dein Rezept besonders macht.</p>
+        <h1>Küchen<br>Meister Eder</h1>
+        <p class="claim">Handwerk aus der Küche, mit Sorgfalt gemacht</p>
+        <div class="cta-row">
+          <a class="btn" href="https://wa.me/4915259606985" target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+        </div>
       </div>
+      <img class="logo" src="logo-menu.png" alt="Küchen Meister Eder" width="352" height="352">
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="sortiment">
-  <div class="wrap">
-    <p class="section-label">Sortiment</p>
-    <h2>Was es gibt</h2>
-    <div class="products">
-      <div class="product-card">
-        <div class="product-photo">Foto einfügen</div>
-        <div class="product-body">
-          <h3>Klassische Maultaschen</h3>
-          <p>Mit Hackfleisch, Spinat und Kräutern &mdash; das Original.</p>
-        </div>
+  <section class="band-ink" style="border-top: 1px solid var(--logo-green);">
+    <div class="wrap about">
+      <div>
+        <h2>Der Küchenmeister</h2>
+        <p>Florian Eder ist Küchenmeister mit einem Studium in Lebensmittelmanagement und -technologie. Im Alltag leitet er als Küchenchef eine Gemeinschaftsverpflegung für rund 100 Personen.</p>
+        <p>Was er dort täglich in großem Maßstab macht, macht er hier in Handarbeit: Maultaschen in kleinen Mengen und Speisen für Feiern und Veranstaltungen.</p>
       </div>
-      <div class="product-card">
-        <div class="product-photo">Foto einfügen</div>
-        <div class="product-body">
-          <h3>Vegetarische Maultaschen</h3>
-          <p>Herzhafte Füllung ganz ohne Fleisch.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-photo">Foto einfügen</div>
-        <div class="product-body">
-          <h3>Geräuchert &amp; geschmälzt</h3>
-          <p>Klassisch angebraten mit Zwiebeln, zum sofort Genießen.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-photo">Foto einfügen</div>
-        <div class="product-body">
-          <h3>Wochenangebot</h3>
-          <p>Wechselnde Sonderedition &mdash; frag einfach nach, was aktuell da ist.</p>
-        </div>
+      <div>
+        <h2>Kurz gesagt</h2>
+        <ul class="facts-ink">
+          <li><span>Beruf</span><b>Küchenmeister, Küchenchef</b></li>
+          <li><span>Ausbildung</span><b>Studium Lebensmittelmanagement und -technologie</b></li>
+          <li><span>Erfahrung</span><b>Verpflegung für rund 100 Personen</b></li>
+          <li><span>Ort</span><b>Althütte</b></li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section order" id="bestellen">
-  <div class="wrap">
-    <p class="section-label">Bestellen</p>
-    <h2>So einfach geht's</h2>
-    <div class="order-steps">
-      <div><strong>1. Schreiben</strong>Schick mir über WhatsApp, was und wie viel du möchtest.</div>
-      <div><strong>2. Absprechen</strong>Wir klären Abholung oder Lieferung und den Termin.</div>
-      <div><strong>3. Genießen</strong>Frisch zubereitet, direkt zu dir.</div>
-    </div>
-    <a class="btn-whatsapp-large" href="https://wa.me/4915259606985?text=Hallo%2C%20ich%20m%C3%B6chte%20Maultaschen%20bestellen" target="_blank" rel="noopener">
-      Zu WhatsApp
+  <section class="tiles">
+    <a class="tile green" href="#maultaschen">
+      <h2>Maultaschen</h2>
+      <p>Von Meisterhand gerollt, vakuumiert und bereit für die Brühe.</p>
+      <span class="go">Zu den Maultaschen</span>
     </a>
-  </div>
-</section>
+    <a class="tile line" href="#catering">
+      <h2>Catering</h2>
+      <p>Speisen für bis zu 100 Personen, zur Abholung.</p>
+      <span class="go">Zum Catering</span>
+    </a>
+  </section>
+</main>
 
-<footer>
-  <div class="wrap" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; width: 100%;">
-    <span>&copy; 2026 Küchen Meister Eder</span>
-    <span>
-      <a href="#">Impressum</a> &middot; <a href="#">Datenschutz</a>
-    </span>
+<!-- MAULTASCHEN -->
+<main id="view-maultaschen" data-view="maultaschen" hidden>
+  <section class="band-ink">
+    <div class="wrap pagehead">
+      <h1>Maultaschen</h1>
+      <p class="claim">von Meisterhand gerollt</p>
+      <p class="pagehead-note">Gefüllt mit Fleisch und Spinat, vakuumiert verpackt. Du legst sie in siedende Brühe, nach sechs Minuten sind sie fertig.</p>
+    </div>
+  </section>
+
+  <section class="band-green">
+    <div class="wrap product">
+      <div>
+        <h2>Zutaten</h2>
+        <p>Schweinefleisch (28%), Nudelteig (<strong>Hartweizengrieß</strong>, <strong>Vollei</strong>, <strong>Weizenmehl</strong>, Trinkwasser, <strong>Weizengluten</strong>, Salz), Spinat (13%), Brät (11%) (Schweinefleisch, Schweinefett, Trinkwasser), Lauch, <strong>Vollei</strong>, Zwiebel, Semmelbrösel (<strong>Weizenmehl</strong>, Trinkwasser, Salz, Hefe), Rauchsalz (Salz, Gewürze, Hefeextrakt, Aroma), Salz, Gewürze, Petersilie</p>
+        <h2>Zubereitung</h2>
+        <p style="margin-bottom:0">Maultaschen aus der Verpackung in siedende Brühe geben. Bei mittlerer Hitze sechs Minuten ziehen lassen. In der Brühe garniert mit geschmälzten Zwiebeln und Schnittlauch servieren. Nur durcherhitzt verzehren!</p>
+      </div>
+      <div>
+        <h2 style="margin-bottom:1rem">Auf einen Blick</h2>
+        <ul class="facts">
+          <li><span>Preis</span><b class="price">22,50 € / kg</b></li>
+          <li><span>Verpackung</span><b>vakuumiert</b></li>
+          <li><span>Lagerung</span><b>bei 7 °C oder kälter</b></li>
+          <li><span>Konservierungsstoffe</span><b>keine</b></li>
+          <li><span>Erhältlich</span><b>auf Bestellung und bei unserem Bäckerei-Partner</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-ink">
+    <div class="wrap order">
+      <h2 style="color: var(--green)">Bestellen</h2>
+      <p>Schreib uns per WhatsApp, wie viele Maultaschen du möchtest. Wir sagen dir, wann sie abholbereit sind.</p>
+      <a class="btn" href="https://wa.me/4915259606985" target="_blank" rel="noopener">Per WhatsApp bestellen</a>
+      <p style="margin:1.2rem 0 0">oder direkt: <span class="num">01525 9606985</span></p>
+    </div>
+  </section>
+</main>
+
+<!-- CATERING -->
+<main id="view-catering" data-view="catering" hidden>
+  <section class="band-ink">
+    <div class="wrap pagehead">
+      <h1>Catering</h1>
+      <p class="claim">Speisen für bis zu 100 Personen</p>
+      <p class="pagehead-note">Für Feiern, Vereine und Firmen. Die Speisen werden frisch in einer professionell ausgestatteten Küche zubereitet und bei uns abgeholt.</p>
+    </div>
+  </section>
+
+  <section class="band-ink" style="border-top: 1px solid var(--logo-green);">
+    <div class="wrap cat">
+      <div>
+        <h2>Was du bekommst</h2>
+        <p>Speisen für Gruppen von wenigen bis zu 100 Personen, abgestimmt auf deinen Anlass. Das Angebot richtet sich nach deinem Wunsch, deiner Personenzahl und deinem Termin.</p>
+        <p>Es handelt sich um Speisen zur Abholung. Service vor Ort und Geschirr gehören nicht dazu.</p>
+      </div>
+      <div>
+        <h2>So läuft es ab</h2>
+        <ol class="steps">
+          <li><span class="n">1</span><span><strong>Anfrage</strong>Schreib uns Anlass, Termin und Personenzahl per WhatsApp.</span></li>
+          <li><span class="n">2</span><span><strong>Angebot</strong>Du bekommst einen Vorschlag mit Preis.</span></li>
+          <li><span class="n">3</span><span><strong>Abholung</strong>Am vereinbarten Tag holst du die Speisen bei uns ab.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-green">
+    <div class="wrap order">
+      <h2>Catering anfragen</h2>
+      <p>Schreib uns kurz, was du planst. Wir melden uns mit einem Angebot.</p>
+      <a class="btn dark" href="https://wa.me/4915259606985" target="_blank" rel="noopener">Per WhatsApp anfragen</a>
+      <p style="margin:1.2rem 0 0">oder direkt: <span class="num">01525 9606985</span></p>
+    </div>
+  </section>
+</main>
+
+<!-- IMPRESSUM -->
+<!-- ENTWURF: vor der Veröffentlichung prüfen; E-Mail-Adresse ergänzen (Pflichtangabe) -->
+<main id="view-impressum" data-view="impressum" hidden>
+  <section class="band-ink">
+    <div class="wrap pagehead">
+      <h1>Impressum</h1>
+    </div>
+  </section>
+
+  <section class="band-ink" style="border-top: 1px solid var(--logo-green);">
+    <div class="wrap legal">
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>Florian Eder<br>Florian Eder's Genuss Werkstatt<br>Haus-Lutzenberg-Strasse 4<br>71566 Althütte</p>
+
+      <h2>Kontakt</h2>
+      <p>Telefon / WhatsApp: 01525 9606985<br>E-Mail: <span class="todo">[E-Mail-Adresse ergänzen]</span></p>
+
+      <h2>Haftung für Inhalte und Links</h2>
+      <p>Die Inhalte dieser Seite wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden. Für Inhalte externer Seiten, auf die verlinkt wird (zum Beispiel WhatsApp), sind ausschließlich deren Betreiber verantwortlich.</p>
+    </div>
+  </section>
+</main>
+
+<!-- DATENSCHUTZ -->
+<!-- ENTWURF: vor der Veröffentlichung prüfen; E-Mail-Adresse ergänzen -->
+<main id="view-datenschutz" data-view="datenschutz" hidden>
+  <section class="band-ink">
+    <div class="wrap pagehead">
+      <h1>Datenschutz</h1>
+      <p class="claim">Stand: Oktober 2026</p>
+    </div>
+  </section>
+
+  <section class="band-ink" style="border-top: 1px solid var(--logo-green);">
+    <div class="wrap legal">
+      <h2>Verantwortlicher</h2>
+      <p>Florian Eder, Florian Eder's Genuss Werkstatt, Haus-Lutzenberg-Strasse 4, 71566 Althütte<br>Telefon: 01525 9606985<br>E-Mail: <span class="todo">[E-Mail-Adresse ergänzen]</span></p>
+
+      <h2>Hosting bei GitHub Pages</h2>
+      <p>Diese Website wird über GitHub Pages bereitgestellt (GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). Beim Aufruf der Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten, etwa deine IP-Adresse, Datum und Uhrzeit, die aufgerufene Seite sowie Browser- und Systeminformationen. Das ist nötig, um die Seite auszuliefern und ihre Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Dabei können Daten in die USA übermittelt werden. Mehr dazu in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+
+      <h2>Schriftarten von Google Fonts</h2>
+      <p>Für die einheitliche Darstellung lädt diese Seite die Schriftart Barlow Semi Condensed von Servern der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Dabei wird deine IP-Adresse an Google übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, das berechtigte Interesse an einer einheitlichen und ansprechenden Darstellung.</p>
+
+      <h2>Kontakt per WhatsApp oder Telefon</h2>
+      <p>Die Schaltflächen „Per WhatsApp schreiben“ und „Per WhatsApp bestellen“ sind einfache Links. Erst wenn du sie anklickst, öffnet sich WhatsApp; ab da gelten die Datenschutzbestimmungen von WhatsApp. Wenn du uns schreibst oder anrufst, verarbeiten wir deinen Namen, deine Telefonnummer und den Inhalt deiner Nachricht, um deine Bestellung oder Anfrage zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Die Daten werden gelöscht, sobald sie dafür nicht mehr gebraucht werden und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+      <h2>Cookies und Tracking</h2>
+      <p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Tracking-Dienste.</p>
+
+      <h2>Deine Rechte</h2>
+      <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten, auf Datenübertragbarkeit und auf Widerspruch gegen die Verarbeitung. Wende dich dafür an die oben genannten Kontaktdaten. Außerdem kannst du dich bei einer Datenschutzaufsichtsbehörde beschweren, in Baden-Württemberg beim <a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank" rel="noopener">Landesbeauftragten für den Datenschutz und die Informationsfreiheit</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="band-ink" style="border-top: 1px solid var(--logo-green);">
+  <div class="wrap">
+    <img class="logo-s" src="logo.png" alt="Küchen Meister Eder" width="72" height="72">
+    <address>
+      <span class="label">Hersteller</span><br>
+      Florian Eder's Genuss Werkstatt<br>
+      Haus-Lutzenberg-Strasse 4<br>
+      71566 Althütte
+    </address>
+    <div>
+      <span class="label">Kontakt</span><br>
+      Tel. / WhatsApp <span class="num">01525 9606985</span>
+    </div>
+    <div class="legal-links">
+      <span class="label">Rechtliches</span><br>
+      <a href="#impressum">Impressum</a><br>
+      <a href="#datenschutz">Datenschutz</a>
+    </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var views = ["start", "maultaschen", "catering", "impressum", "datenschutz"];
+  function viewFromHash() {
+    var h = (location.hash || "").replace("#", "");
+    return views.indexOf(h) > -1 ? h : "start";
+  }
+  function show(v) {
+    views.forEach(function (name) {
+      document.getElementById("view-" + name).hidden = name !== v;
+    });
+    document.querySelectorAll("[data-nav]").forEach(function (a) {
+      if (a.getAttribute("data-nav") === v) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var name = a.getAttribute("href").slice(1);
+    if (views.indexOf(name) < 0) return;
+    e.preventDefault();
+    show(name);
+    try { history.pushState(null, "", "#" + name); } catch (err) {}
+  });
+  window.addEventListener("hashchange", function () { show(viewFromHash()); });
+  window.addEventListener("popstate", function () { show(viewFromHash()); });
+  show(viewFromHash());
+})();
+</script>
 
 </body>
 </html>
